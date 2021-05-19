@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { fetchPosts } from "../actions";
+import { fetchPosts, fetchPostsAndUsers } from "../actions";
 import UserHeader from "./UserHeader";
 
 const PostList = (props) => {
@@ -24,7 +24,8 @@ const PostList = (props) => {
   };
 
   useEffect(() => {
-    props.fetchPosts();
+    // props.fetchPosts();
+    props.fetchPostsAndUsers();
   }, []);
 
   return <div className="ui relaxed divided list">{renderePosts()}</div>;
@@ -36,4 +37,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { fetchPosts })(PostList);
+export default connect(mapStateToProps, { fetchPosts, fetchPostsAndUsers })(PostList);
